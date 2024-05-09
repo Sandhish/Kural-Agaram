@@ -11,8 +11,8 @@ export const ThirukkuralIndex = async (req, res) => {
 
 export const ThirukkuralAdd = async (req, res) => {
     const newKural = new Kural({
-        kural: req.body.kural,
         kuralNo:req.body.kuralNo,
+        kural: req.body.kural,
     });
 
     try {
@@ -47,12 +47,12 @@ export const ThirukkuralDelete=async(req,res)=>{
     }
 };
 
-export const ThirukkuralUpdate=async(req,res)=>{
+export const ThirukkuralUpdate = async (req, res) => {
     try {
-        const updatedKural =await Kural.findOneAndUpdate(
-            {_id:req.params.id},
-            {kural:req.body.kural},
-            {new:true}
+        const updatedKural = await Kural.findOneAndUpdate(
+            { _id: req.params.id },
+            { $set: { kuralNo: req.body.kuralNo, kural: req.body.kural } },
+            { new: true }
         );
         res.status(200).json(updatedKural);
     } catch (error) {
