@@ -6,6 +6,11 @@ const schema = new Schema({
         required:true,
         unique: true,
     },
+    kuralNo:{
+        type:Number,
+        required:true,
+        unique:true,
+    },
 });
 
 const Kural = model("Kural",schema);

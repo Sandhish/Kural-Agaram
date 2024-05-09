@@ -12,6 +12,7 @@ export const ThirukkuralIndex = async (req, res) => {
 export const ThirukkuralAdd = async (req, res) => {
     const newKural = new Kural({
         kural: req.body.kural,
+        kuralNo:req.body.kuralNo,
     });
 
     try {
