@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link } from "react-router-dom"
 import { HiOutlineDocumentPlus } from "react-icons/hi2";
 import { GrDocumentUpdate } from "react-icons/gr";
-import { MdOutlineDeleteSweep } from "react-icons/md";
+import { MdDelete } from "react-icons/md";
 import axios from "axios";
 import styles from './home.module.css';
 
@@ -30,7 +30,7 @@ const Home = () => {
       <div className={styles.mainModule}>
         <div className={styles.mainHeading}>
           Thirukkural
-          <Link to='/create' className={styles.addIcon}><HiOutlineDocumentPlus /></Link>
+          <Link to='/create' title='Add' className={styles.addIcon}><HiOutlineDocumentPlus /></Link>
         </div>
         <div className={styles.kuralTable}>
           <table>
@@ -48,9 +48,9 @@ const Home = () => {
                     <td>{kural.kuralNo}</td>
                     <td>{kural.kural}</td>
                     <td>
-                      <Link to={'/update/${kural._id}'} className={styles.updateIcon}><GrDocumentUpdate /></Link>
+                      <Link to={`/update/${kural._id}`} title='Update' className={styles.updateIcon} ><GrDocumentUpdate /></Link>
                       <button className={styles.deleteIcon}
-                        onClick={(e) => handleDelete(kural._id)}><MdOutlineDeleteSweep />
+                        onClick={(e) => handleDelete(kural._id)} title='Delete'><MdDelete />
                       </button>
                     </td>
                   </tr>

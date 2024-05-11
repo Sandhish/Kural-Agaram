@@ -26,7 +26,7 @@ const create = () => {
       <div className={styles.createMain}>
         <form onSubmit={Submit}>
           <div className={styles.createHeading}>Add Kural</div>
-          <label htmlFor="kuralNo" className={styles.createLabel}>KuralNo :</label>
+          <label htmlFor="kuralNo" className={styles.createLabel}>KuralNo</label>
           <input type="number" name='kuralNo' className={styles.createInput}
             onChange={(e) => setKuralNo(e.target.value)} value={kuralNo} />
           <label htmlFor="kural" className={styles.createLabel}>Kural</label>

@@ -24,6 +24,7 @@
         padding: 2px;
         cursor: pointer;
         color: black;
+        font-size: 2rem;
     }
 }
 
@@ -57,7 +58,25 @@ td:nth-child(3)  {
     width: 15%;
 }
 
+th:nth-child(3){
+    text-align: center;
+}
+
 th:nth-child(2),
 td:nth-child(2) {
     width: 50%;
+}
+
+.updateIcon, .deleteIcon{
+    color: black;
+    font-size: 1.3rem;
+    border: none;
+    background-color: transparent;    
+    margin-left: 1.2rem;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.deleteIcon{
+    font-size: 1.4rem;
 }
