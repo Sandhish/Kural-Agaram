@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Main from './components/Main/main'
+import Home from './components/Home/home'
 import Update from './components/Update/update'
 import Create from './components/Create/create'
 
@@ -8,7 +8,7 @@ function App() {
     <>
       <Router>
         <Routes>
-          <Route path='/' element={<Main />} ></Route>
+          <Route path='/' element={<Home />} ></Route>
           <Route path='/create' element={<Create />} ></Route>
           <Route path='/update/:id' element={<Update />} ></Route>
         </Routes>

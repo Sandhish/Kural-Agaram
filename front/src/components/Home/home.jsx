@@ -4,9 +4,9 @@ import { HiOutlineDocumentPlus } from "react-icons/hi2";
 import { GrDocumentUpdate } from "react-icons/gr";
 import { MdOutlineDeleteSweep } from "react-icons/md";
 import axios from "axios";
-import styles from './main.module.css';
+import styles from './home.module.css';
 
-const Main = () => {
+const Home = () => {
 
   const [kurals, setKurals] = useState([])
 
@@ -64,4 +64,4 @@ const Main = () => {
   );
 }
 
-export default Main;
+export default Home;

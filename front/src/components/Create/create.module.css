@@ -1,0 +1,14 @@
+.createContainer{
+    font-family: 'Sens',sans-serif;
+}
+
+.createHeading{
+    font-size: 1.6rem;
+}
+
+.createMain {
+    input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    }
+}
+

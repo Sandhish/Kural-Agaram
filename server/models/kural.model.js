@@ -6,7 +6,7 @@ const schema = new Schema({
         required:true,
         unique:true,
     },
-    kural:{
+    kural: {
         type:String,
         required:true,
         unique: true,

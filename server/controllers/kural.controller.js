@@ -27,7 +27,7 @@ export const ThirukkuralDetails=async(req,res)=>{
     try {
         const kural = await Kural.findById(req.params.id);
         if(kural==null){
-            return res.status(404).json({ message: "Cannot find movie" });
+            return res.status(404).json({ message: "Cannot find kural" });
         }else{
             return res.json(kural);
         }
