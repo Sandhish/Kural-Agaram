@@ -16,7 +16,7 @@ const create = () => {
         console.log(result);
         setKural('');
         setKuralNo('');
-        navigate('/');
+        navigate('/home');
       })
       .catch(err => console.log(err));
   }

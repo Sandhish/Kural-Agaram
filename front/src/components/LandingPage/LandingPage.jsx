@@ -1,13 +1,11 @@
+import styles from './LandingPage.module.css'
 import { useState, useEffect } from 'react';
 import { Link } from "react-router-dom"
-import { HiOutlineDocumentPlus } from "react-icons/hi2";
-import { GrDocumentUpdate } from "react-icons/gr";
-import { MdDelete } from "react-icons/md";
+import { FaEdit } from "react-icons/fa";
+import { IoMdSearch } from "react-icons/io";
 import axios from "axios";
-import styles from './home.module.css';
 
-const Home = () => {
-
+const LandingPage = () => {
   const [kurals, setKurals] = useState([])
 
   useEffect(() => {
@@ -16,21 +14,13 @@ const Home = () => {
       .catch(err => console.log(err))
   }, [])
 
-  const handleDelete = (id) => {
-    axios.delete('http://localhost:9999/kural/' + id)
-      .then(res => {
-        console.log(res);
-        window.location.reload()
-      })
-      .catch(err => console.log(err))
-  }
-
   return (
     <div className={styles.mainContainer}>
       <div className={styles.mainModule}>
         <div className={styles.mainHeading}>
-          <p>Thirukkural</p>
-          <Link to='/create' title='Add' className={styles.addIcon}><HiOutlineDocumentPlus /></Link>
+          <p>Thirukkural List</p>
+          {/* <input type="text" name="search" className={styles.searchIcon} /> <IoMdSearch /> */}
+          <Link to='/home' title='Edit' className={styles.addIcon}><FaEdit/></Link>
         </div>
         <div className={styles.kuralTable}>
           <table>
@@ -38,7 +28,6 @@ const Home = () => {
               <tr>
                 <th>Kural No</th>
                 <th>Kural</th>
-                <th>Action</th>
               </tr>
             </thead>
             <tbody>
@@ -47,12 +36,6 @@ const Home = () => {
                   <tr key={kural._id}>
                     <td>{kural.kuralNo}</td>
                     <td>{kural.kural}</td>
-                    <td>
-                      <Link to={`/update/${kural._id}`} title='Update' className={styles.updateIcon} ><GrDocumentUpdate /></Link>
-                      <button className={styles.deleteIcon}
-                        onClick={(e) => handleDelete(kural._id)} title='Delete'><MdDelete />
-                      </button>
-                    </td>
                   </tr>
                 ))
               }
@@ -64,4 +47,4 @@ const Home = () => {
   );
 }
 
-export default Home;
+export default LandingPage

@@ -3,7 +3,7 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    font-family: 'Sens',sans-serif;
+    font-family: 'Sens', sans-serif;
     box-shadow: 0px 0px .8rem rgba(50, 49, 49, 0.6);
 }
 
@@ -12,7 +12,7 @@
     padding: 1.5rem;
     border: 2px solid #ccc;
     border-radius: 10px;
-    
+
     input::-webkit-inner-spin-button {
         -webkit-appearance: none;
     }

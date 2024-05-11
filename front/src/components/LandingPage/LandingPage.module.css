@@ -14,9 +14,25 @@
 
 .mainHeading {
     display: flex;
+    font-size: 1.8rem;
     font-weight: bold;
     margin-top: 1rem;
     margin-bottom: 1.2rem;
+
+    input[type="text"]{
+        outline: none;
+        border: none;
+        border-bottom: 2px solid black;
+        width: 10%;
+        margin-left: 26%;
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    .searchIcon{
+        margin-left: auto;
+        font-size: 1.5rem;
+    }
 
     p{
         font-size: 1.8rem;
@@ -27,7 +43,7 @@
         padding: 2px;
         cursor: pointer;
         color: black;
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
 }
 
@@ -56,32 +72,11 @@ tr:hover {
 }
 
 th:nth-child(1),
-td:nth-child(1),
-th:nth-child(3),
-td:nth-child(3) {
-    width: 15%;
-}
-
-th:nth-child(3) {
-    text-align: center;
+td:nth-child(1) {
+    width: 13%;
 }
 
 th:nth-child(2),
 td:nth-child(2) {
     width: 50%;
-}
-
-.updateIcon,
-.deleteIcon {
-    color: black;
-    font-size: 1.3rem;
-    border: none;
-    background-color: transparent;
-    margin-left: 1.2rem;
-    cursor: pointer;
-    padding: 5px;
-}
-
-.deleteIcon {
-    font-size: 1.4rem;
 }
