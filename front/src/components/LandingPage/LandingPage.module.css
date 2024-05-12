@@ -14,12 +14,11 @@
 
 .mainHeading {
     display: flex;
-    font-size: 1.8rem;
     font-weight: bold;
     margin-top: 1rem;
     margin-bottom: 1.2rem;
 
-    input[type="text"]{
+    input[type="number"] {
         outline: none;
         border: none;
         border-bottom: 2px solid black;
@@ -29,12 +28,17 @@
         text-align: center;
     }
 
-    .searchIcon{
-        margin-left: auto;
-        font-size: 1.5rem;
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
     }
 
-    p{
+    .searchIcon {
+        font-size: 2.4rem;
+        padding: 6px;
+        cursor: pointer;
+    }
+
+    p {
         font-size: 1.8rem;
     }
 
@@ -61,6 +65,8 @@ td {
 
 th {
     background-color: #f2f2f2;
+    font-size: 1.2rem;
+    font-weight: 600;
 }
 
 tr:nth-child(even) {

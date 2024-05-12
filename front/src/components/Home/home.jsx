@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 import { HiOutlineDocumentPlus } from "react-icons/hi2";
 import { GrDocumentUpdate } from "react-icons/gr";
 import { MdDelete } from "react-icons/md";
+import { IoIosExit } from "react-icons/io";
 import axios from "axios";
 import styles from './home.module.css';
 
@@ -31,6 +32,7 @@ const Home = () => {
         <div className={styles.mainHeading}>
           <p>Thirukkural</p>
           <Link to='/create' title='Add' className={styles.addIcon}><HiOutlineDocumentPlus /></Link>
+          <Link to='/' title='Exit' className={styles.exitIcon}><IoIosExit /></Link>
         </div>
         <div className={styles.kuralTable}>
           <table>

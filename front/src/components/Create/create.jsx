@@ -9,9 +9,9 @@ const create = () => {
   const [kuralNo, setKuralNo] = useState('')
   const navigate = useNavigate()
 
-  const Submit = (e) => {
+  const Submit = async(e) => {
     e.preventDefault();
-    axios.post("http://localhost:9999/kural/", { kural, kuralNo })
+    await axios.post("http://localhost:9999/kural/", { kural, kuralNo })
       .then(result => {
         console.log(result);
         setKural('');
@@ -30,8 +30,8 @@ const create = () => {
           <input type="number" name='kuralNo' className={styles.createInput}
             onChange={(e) => setKuralNo(e.target.value)} value={kuralNo} />
           <label htmlFor="kural" className={styles.createLabel}>Kural</label>
-          <input type="text" name='kural' className={styles.createInput}
-            onChange={(e) => setKural(e.target.value)} value={kural} />
+          <textarea name="kural" className={`${styles.createInput} ${styles.updateInput}`}
+            onChange={(e) => setKural(e.target.value)} value={kural} rows={'3'} cols={'50'}/>
           <button className={styles.createButton} type='submit'>submit</button>
         </form>
       </div>

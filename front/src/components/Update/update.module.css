@@ -27,10 +27,7 @@
 .createLabel {
     display: block;
     margin-bottom: .6rem;
-}
-
-.kuralInput{
-    
+    font-weight: 400;
 }
 
 .createInput {
@@ -39,6 +36,7 @@
     margin-bottom: 1.5rem;
     border: 1px solid #ccc;
     border-radius: 10px;
+    font-weight: 400;
 }
 
 .createButton {
