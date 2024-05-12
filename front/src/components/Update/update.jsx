@@ -10,7 +10,7 @@ const Update = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get(`http://localhost:9999/kural/${id}`)
+    axios.get(`https://thirukkural-crud.onrender.com/kural/${id}`)
       .then(result => {
         console.log(result.data);
         setKuralNo(result.data.kuralNo || '');
@@ -21,7 +21,7 @@ const Update = () => {
 
   const handleUpdate = (e) => {
     e.preventDefault();
-    axios.put(`http://localhost:9999/kural/${id}`, { kural, kuralNo })
+    axios.put(`https://thirukkural-crud.onrender.com/kural/${id}`, { kural, kuralNo })
       .then(result => {
         console.log(result);
         setKural('');

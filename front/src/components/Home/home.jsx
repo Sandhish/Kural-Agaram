@@ -12,13 +12,13 @@ const Home = () => {
   const [kurals, setKurals] = useState([])
 
   useEffect(() => {
-    axios.get('http://localhost:9999/kural/')
+    axios.get('https://thirukkural-crud.onrender.com/kural/')
       .then(result => setKurals(result.data))
       .catch(err => console.log(err))
   }, [])
 
   const handleDelete = (id) => {
-    axios.delete('http://localhost:9999/kural/' + id)
+    axios.delete('https://thirukkural-crud.onrender.com/kural/' + id)
       .then(res => {
         console.log(res);
         window.location.reload()

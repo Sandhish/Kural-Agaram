@@ -12,7 +12,7 @@ const LandingPage = () => {
   const [filteredKurals, setFilteredKurals] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:9999/kural/')
+    axios.get('https://thirukkural-crud.onrender.com/kural/')
       .then((result) => {
         setKurals(result.data);
         setFilteredKurals(result.data);

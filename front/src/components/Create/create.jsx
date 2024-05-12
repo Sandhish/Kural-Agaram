@@ -11,7 +11,7 @@ const create = () => {
 
   const Submit = async(e) => {
     e.preventDefault();
-    await axios.post("http://localhost:9999/kural/", { kural, kuralNo })
+    await axios.post("https://thirukkural-crud.onrender.com/kural/", { kural, kuralNo })
       .then(result => {
         console.log(result);
         setKural('');
