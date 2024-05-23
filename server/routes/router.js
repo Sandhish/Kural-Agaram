@@ -3,14 +3,14 @@ import express from 'express'
 
 const router = express.Router();
 
-router.get("/",ThirukkuralIndex);
+router.get("/", ThirukkuralIndex);
 
-router.get('/:id',ThirukkuralDetails);
+router.get('/:id', ThirukkuralDetails);
 
-router.post("/",ThirukkuralAdd);
+router.post("/", ThirukkuralAdd);
 
-router.put('/:id',ThirukkuralUpdate);
+router.put('/:id', ThirukkuralUpdate);
 
-router.delete('/:id',ThirukkuralDelete);
+router.delete('/:id', ThirukkuralDelete);
 
 export default router

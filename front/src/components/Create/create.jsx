@@ -9,7 +9,7 @@ const create = () => {
   const [kuralNo, setKuralNo] = useState('')
   const navigate = useNavigate()
 
-  const Submit = async(e) => {
+  const Submit = async (e) => {
     e.preventDefault();
     await axios.post("https://thirukkural-crud.onrender.com/kural/", { kural, kuralNo })
       .then(result => {
@@ -31,7 +31,7 @@ const create = () => {
             onChange={(e) => setKuralNo(e.target.value)} value={kuralNo} />
           <label htmlFor="kural" className={styles.createLabel}>Kural</label>
           <textarea name="kural" className={`${styles.createInput} ${styles.updateInput}`}
-            onChange={(e) => setKural(e.target.value)} value={kural} rows={'3'} cols={'50'}/>
+            onChange={(e) => setKural(e.target.value)} value={kural} rows={'3'} cols={'50'} />
           <button className={styles.createButton} type='submit'>submit</button>
         </form>
       </div>

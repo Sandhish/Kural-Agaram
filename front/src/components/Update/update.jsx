@@ -43,7 +43,7 @@ const Update = () => {
 
           <label htmlFor="kural" className={styles.createLabel}>Kural</label>
           <textarea name="kural" className={`${styles.createInput} ${styles.updateInput}`}
-            onChange={(e) => setKural(e.target.value)} value={kural} rows={'3'} cols={'50'}/>
+            onChange={(e) => setKural(e.target.value)} value={kural} rows={'3'} cols={'50'} />
 
           <button className={styles.createButton} type='submit'>submit</button>
         </form>

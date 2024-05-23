@@ -42,7 +42,7 @@ const LandingPage = () => {
           <p>Thirukkural List</p>
           <input type="number" name="search" value={searchInput}
             onChange={handleInputChange} placeholder="Kural No" />
-          <IoMdSearch className={styles.searchIcon} onClick={handleSearch} /> 
+          <IoMdSearch className={styles.searchIcon} onClick={handleSearch} />
           <Link to="/home" title="Edit" className={styles.addIcon}> <FaEdit /> </Link>
         </div>
         <div className={styles.kuralTable}>

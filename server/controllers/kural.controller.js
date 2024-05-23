@@ -11,24 +11,24 @@ export const ThirukkuralIndex = async (req, res) => {
 
 export const ThirukkuralAdd = async (req, res) => {
     const newKural = new Kural({
-        kuralNo:req.body.kuralNo,
+        kuralNo: req.body.kuralNo,
         kural: req.body.kural,
     });
 
     try {
-        const kurals= await newKural.save();
+        const kurals = await newKural.save();
         return res.status(201).json(kurals);
     } catch (error) {
         return res.status(400).json({ message: error.message });
     }
 };
 
-export const ThirukkuralDetails=async(req,res)=>{
+export const ThirukkuralDetails = async (req, res) => {
     try {
         const kural = await Kural.findById(req.params.id);
-        if(kural==null){
+        if (kural == null) {
             return res.status(404).json({ message: "Cannot find kural" });
-        }else{
+        } else {
             return res.json(kural);
         }
     } catch (error) {
@@ -36,11 +36,11 @@ export const ThirukkuralDetails=async(req,res)=>{
     }
 };
 
-export const ThirukkuralDelete=async(req,res)=>{
-    const kuralId=req.params.id;
+export const ThirukkuralDelete = async (req, res) => {
+    const kuralId = req.params.id;
 
     try {
-        await Kural.deleteOne({_id:kuralId});
+        await Kural.deleteOne({ _id: kuralId });
         res.json({ message: "Thirukkural deleted!" });
     } catch (error) {
         res.status(500).json({ message: error.message });
