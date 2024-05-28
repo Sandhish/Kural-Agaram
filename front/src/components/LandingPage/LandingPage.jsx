@@ -11,7 +11,7 @@ const LandingPage = () => {
                 </div>
                 <div className={styles.navLinks}>
                     <Link to="/kuralList" className={styles.allKural}>View All Kurals</Link>
-                    <Link to="/myList" className={styles.myKurals}>Lists</Link>
+                    <Link to="/myList" className={styles.myKurals}>My List</Link>
                 </div>
             </div>
         </>
