@@ -1,7 +1,9 @@
-import { ThirukkuralIndex, ThirukkuralAdd, ThirukkuralDetails, ThirukkuralDelete, ThirukkuralUpdate } from '../controllers/kural.controller.js'
+import { ThirukkuralIndex, ThirukkuralAdd, ThirukkuralDetails, ThirukkuralDelete, ThirukkuralUpdate, ThirukkuralList } from '../controllers/kural.controller.js'
 import express from 'express'
 
 const router = express.Router();
+
+router.get('/kuralList',ThirukkuralList)
 
 router.get("/", ThirukkuralIndex);
 

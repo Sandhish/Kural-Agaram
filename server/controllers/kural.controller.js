@@ -1,4 +1,19 @@
 import Kural from "../models/kural.model.js";
+import KuralList from "../models/kuralList.model.js";
+
+export const ThirukkuralList = async (req, res) => {
+    try {
+        const kuralList = await KuralList.find({}, 'kural');
+        const flattenedKurals = kuralList.flatMap(doc => doc.kural.map(kural => ({
+            Number: kural.Number,
+            Line1: kural.Line1,
+            Line2: kural.Line2,
+        })));
+        res.json(flattenedKurals);
+    } catch (error) {
+        res.status(400).json({ message: error.message });
+    }
+};
 
 export const ThirukkuralIndex = async (req, res) => {
     try {
