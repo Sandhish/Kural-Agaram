@@ -32,7 +32,7 @@ const Home = () => {
         <div className={styles.mainHeading}>
           <p>Thirukkural</p>
           <Link to='/create' title='Add' className={styles.addIcon}><HiOutlineDocumentPlus /></Link>
-          <Link to='/' title='Exit' className={styles.exitIcon}><IoIosExit /></Link>
+          <Link to='/myList' title='Exit' className={styles.exitIcon}><IoIosExit /></Link>
         </div>
         <div className={styles.kuralTable}>
           <table>

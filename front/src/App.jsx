@@ -11,12 +11,12 @@ function App() {
     <>
       <Router>
         <Routes>
-          <Route path='/' element={<LandingPage/>}></Route>
+          <Route path='/' element={<LandingPage />}></Route>
           <Route path='/myList' element={<MyList />}></Route>
           <Route path='/home' element={<Home />} ></Route>
           <Route path='/create' element={<Create />} ></Route>
           <Route path='/update/:id' element={<Update />} ></Route>
-          <Route path='/kuralList' element={<Thirukkurals/>} ></Route>
+          <Route path='/kuralList' element={<Thirukkurals />} ></Route>
         </Routes>
       </Router>
     </>

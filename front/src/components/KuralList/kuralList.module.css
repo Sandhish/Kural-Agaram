@@ -38,6 +38,16 @@
         cursor: pointer;
     }
 
+    .exitIcon {
+        color: black;
+        font-size: 2.1rem;
+        border: none;
+        background-color: transparent;
+        margin-left: .1rem;
+        cursor: pointer;
+        padding: 5px;
+    }
+
     p {
         font-size: 1.8rem;
     }

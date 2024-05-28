@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FaEdit } from 'react-icons/fa';
 import { IoMdSearch } from 'react-icons/io';
+import { IoIosExit } from "react-icons/io";
 import axios from 'axios';
 
 const MyList = () => {
@@ -43,7 +44,8 @@ const MyList = () => {
           <input type="number" name="search" value={searchInput}
             onChange={handleInputChange} placeholder="Kural No" />
           <IoMdSearch className={styles.searchIcon} onClick={handleSearch} />
-          <Link to="/home" title="Edit" className={styles.addIcon}> <FaEdit /> </Link>
+          <Link to="/home" title="Edit" className={styles.editIcon}> <FaEdit /> </Link>
+          <Link to='/' title='Exit' className={styles.exitIcon}><IoIosExit /></Link>
         </div>
         <div className={styles.kuralTable}>
           <table>

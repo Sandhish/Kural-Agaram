@@ -1,0 +1,48 @@
+.landingMain {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    font-family: "Inter", sans-serif;
+}
+
+.landingImg {
+    margin-bottom: 1.5rem;
+    margin-top: 7rem;
+}
+
+.landingImg img {
+    width: 19rem;
+    height: auto;
+}
+
+.navLinks {
+    display: flex;
+    justify-content: center;
+}
+
+.allKural,
+.myKurals {
+    margin: 0 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    text-decoration: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.allKural:hover,
+.myKurals:hover {
+    background-color: #0056b3;
+}
+
+.allKural:focus,
+.myKurals:focus {
+    outline: none;
+}

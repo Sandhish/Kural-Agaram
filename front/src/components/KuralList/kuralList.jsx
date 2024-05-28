@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Link } from "react-router-dom"
+import { IoIosExit } from "react-icons/io";
 import { IoMdSearch } from 'react-icons/io';
 import styles from './kuralList.module.css';
 
@@ -46,6 +48,7 @@ const Thirukkurals = () => {
                     <input type="number" name="search" value={searchInput}
                         onChange={handleInputChange} placeholder="Kural No" />
                     <IoMdSearch className={styles.searchIcon} onClick={handleSearch} />
+                    <Link to='/' title='Exit' className={styles.exitIcon}><IoIosExit /></Link>
                 </div>
                 <div className={styles.kuralTable}>
                     <table>

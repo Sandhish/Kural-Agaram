@@ -42,12 +42,20 @@
         font-size: 1.8rem;
     }
 
-    .addIcon {
+    .editIcon {
         margin-left: auto;
-        padding: 2px;
+        padding-right: 2px;
         cursor: pointer;
         color: black;
-        font-size: 1.5rem;
+        font-size: 1.8rem;
+    }
+
+    .exitIcon {
+        margin-left: 0 auto;
+        padding-left: 6px;
+        cursor: pointer;
+        color: black;
+        font-size: 2.1rem;
     }
 }
 

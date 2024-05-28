@@ -3,7 +3,7 @@ import express from 'express'
 
 const router = express.Router();
 
-router.get('/kuralList',ThirukkuralList)
+router.get('/kuralList', ThirukkuralList)
 
 router.get("/", ThirukkuralIndex);
 
