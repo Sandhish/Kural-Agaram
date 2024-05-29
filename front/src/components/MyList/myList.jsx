@@ -23,7 +23,7 @@ const MyList = () => {
 
   const handleSearch = () => {
     const filter = kurals.filter((kural) =>
-      kural.kuralNo.toString().includes(searchInput)
+      kural.kuralNo.toString() === searchInput
     );
     setFilteredKurals(filter);
   };

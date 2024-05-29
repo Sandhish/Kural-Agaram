@@ -27,7 +27,7 @@ const Thirukkurals = () => {
 
     const handleSearch = () => {
         const filter = kurals.filter((kural) =>
-            kural.Number.toString().includes(searchInput)
+            kural.Number.toString() === searchInput
         );
         setFilteredKurals(filter);
     };
