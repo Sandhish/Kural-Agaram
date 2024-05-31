@@ -38,7 +38,6 @@
     }
 }
 
-
 .mainModule {
     background-color: #ffffff;
     border-radius: 1rem;
@@ -77,6 +76,17 @@
         cursor: pointer;
         color: black;
         font-size: 2rem;
+    }
+
+    .homeIcon {
+        color: black;
+        font-size: 1.6rem;
+        border: none;
+        background-color: transparent;
+        margin-left: .1rem;
+        cursor: pointer;
+        padding: 2px;
+        margin-right: 8px;
     }
 
     .exitIcon {
@@ -153,7 +163,7 @@ td:nth-child(2) {
 }
 
 @media screen and (max-width:800px) {
-    .mainContainer{
+    .mainContainer {
         margin: 0;
-    }   
+    }
 }

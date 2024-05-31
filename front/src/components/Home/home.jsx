@@ -5,6 +5,7 @@ import { GrDocumentUpdate } from "react-icons/gr";
 import { MdDelete } from "react-icons/md";
 import { IoIosExit } from "react-icons/io";
 import { IoMdSearch } from 'react-icons/io';
+import { AiFillHome } from "react-icons/ai";
 import axios from "axios";
 import styles from './home.module.css';
 
@@ -54,54 +55,55 @@ const Home = () => {
 
   return (
     <div className={styles.mainContainer}>
-       {loading ? (
-                <div className={styles.loaderContainer}>
-                    <div className={styles.spinner}></div>
-                </div>
-            ) : (
-      <div className={styles.mainModule}>
-        <div className={styles.mainHeading}>
-          <p>Thirukkural</p>
-          <input
-            type="number"
-            name="search"
-            value={searchInput}
-            onChange={handleInputChange}
-            placeholder="Kural No"
-          />
-          <IoMdSearch className={styles.searchIcon} onClick={handleSearch} />
-          <Link to='/create' title='Add' className={styles.addIcon}><HiOutlineDocumentPlus /></Link>
-          <Link to='/' title='Exit' className={styles.exitIcon}><IoIosExit /></Link>
+      {loading ? (
+        <div className={styles.loaderContainer}>
+          <div className={styles.spinner}></div>
         </div>
-        <div className={styles.kuralTable}>
-          <table>
-            <thead>
-              <tr>
-                <th>Kural No</th>
-                <th>Kural</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              {
-                Array.isArray(filteredKurals) && filteredKurals.map((kural) => (
-                  <tr key={kural._id}>
-                    <td>{kural.kuralNo}</td>
-                    <td>{kural.kural}</td>
-                    <td>
-                      <Link to={`/update/${kural._id}`} title='Update' className={styles.updateIcon} ><GrDocumentUpdate /></Link>
-                      <button className={styles.deleteIcon}
-                        onClick={(e) => handleDelete(kural._id)} title='Delete'><MdDelete />
-                      </button>
-                    </td>
-                  </tr>
-                ))
-              }
-            </tbody>
-          </table>
+      ) : (
+        <div className={styles.mainModule}>
+          <div className={styles.mainHeading}>
+            <Link to='/' title='Home' className={styles.homeIcon}><AiFillHome /></Link>
+            <p>Thirukkural</p>
+            <input
+              type="number"
+              name="search"
+              value={searchInput}
+              onChange={handleInputChange}
+              placeholder="Kural No"
+            />
+            <IoMdSearch className={styles.searchIcon} onClick={handleSearch} />
+            <Link to='/create' title='Add' className={styles.addIcon}><HiOutlineDocumentPlus /></Link>
+            <Link to='/' title='Exit' className={styles.exitIcon}><IoIosExit /></Link>
+          </div>
+          <div className={styles.kuralTable}>
+            <table>
+              <thead>
+                <tr>
+                  <th>Kural No</th>
+                  <th>Kural</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                {
+                  Array.isArray(filteredKurals) && filteredKurals.map((kural) => (
+                    <tr key={kural._id}>
+                      <td>{kural.kuralNo}</td>
+                      <td>{kural.kural}</td>
+                      <td>
+                        <Link to={`/update/${kural._id}`} title='Update' className={styles.updateIcon} ><GrDocumentUpdate /></Link>
+                        <button className={styles.deleteIcon}
+                          onClick={(e) => handleDelete(kural._id)} title='Delete'><MdDelete />
+                        </button>
+                      </td>
+                    </tr>
+                  ))
+                }
+              </tbody>
+            </table>
+          </div>
         </div>
-      </div>
-       )}
+      )}
     </div>
   );
 }
