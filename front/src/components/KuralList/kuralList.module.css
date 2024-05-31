@@ -1,8 +1,41 @@
 .mainContainer {
     width: 100%;
     max-width: 50rem;
-    margin: 6rem auto;
+    margin: 4rem auto;
     font-family: 'Sens', sans-serif;
+}
+
+.loader-container {
+    background: rgba(0, 0, 0, 0.834) url("https://media.giphy.com/media/8agqybiK5LW8qrG3vJ/giphy.gif") no-repeat;
+    z-index: 1;
+    height: 100%;
+    border: 1px solid;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.spinner {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 48%;
+    left: 50%;
+    border: 5px solid;
+    border-color: #7e91f0 transparent #7e91f0 transparent;
+    border-radius: 50%;
+    animation: spin-anim 1.5s linear infinite;
+}
+
+@keyframes spin-anim {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 .mainModule {
@@ -87,4 +120,10 @@ td:nth-child(1) {
 th:nth-child(2),
 td:nth-child(2) {
     width: 50%;
+}
+
+@media screen and (max-width:800px) {
+    .mainContainer{
+        margin: 0;
+    }   
 }
