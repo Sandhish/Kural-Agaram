@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { Link } from "react-router-dom";
+import { IoMdArrowRoundBack } from "react-icons/io";
 import styles from './create.module.css'
 
 const create = () => {
@@ -25,7 +27,10 @@ const create = () => {
     <div className={styles.createContainer}>
       <div className={styles.createMain}>
         <form onSubmit={Submit}>
-          <div className={styles.createHeading}>Add Kural</div>
+          <div className={styles.createHeading}>
+            <Link to='/home' title='Back' className={styles.backIcon} ><IoMdArrowRoundBack /></Link>
+            Add Kural
+          </div>
           <label htmlFor="kuralNo" className={styles.createLabel}>KuralNo</label>
           <input type="number" name='kuralNo' className={styles.createInput}
             onChange={(e) => setKuralNo(e.target.value)} value={kuralNo} />

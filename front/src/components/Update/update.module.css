@@ -18,10 +18,21 @@
     }
 }
 
+.backIcon {
+    color: black;
+    font-size: 1.8rem;
+    font-weight: 700;
+    padding-right: 7px;
+    margin-top: 6px;
+}
+
 .updateHeading {
+    display: flex;
+    align-items: center;
     font-size: 1.5rem;
     font-weight: bold;
-    margin-bottom: 20px;
+    margin-bottom: 1.3rem;
+    padding: 6px;
 }
 
 .createLabel {

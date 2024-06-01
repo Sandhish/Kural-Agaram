@@ -19,9 +19,20 @@
 }
 
 .createHeading {
+    display: flex;
+    align-items: center;
     font-size: 1.5rem;
     font-weight: bold;
     margin-bottom: 1.5rem;
+    padding: 6px;
+}
+
+.backIcon {
+    color: black;
+    font-size: 1.8rem;
+    font-weight: 700;
+    padding-right: 7px;
+    margin-top: 6px;
 }
 
 .createLabel {
