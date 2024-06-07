@@ -71,7 +71,7 @@
         cursor: pointer;
     }
 
-    .homeIcon{
+    .homeIcon {
         color: black;
         font-size: 1.6rem;
         border: none;
@@ -80,16 +80,6 @@
         cursor: pointer;
         padding: 2px;
         margin-right: 8px;
-    }
-
-    .exitIcon {
-        color: black;
-        font-size: 2.1rem;
-        border: none;
-        background-color: transparent;
-        margin-left: .1rem;
-        cursor: pointer;
-        padding: 5px;
     }
 
     p {
@@ -125,12 +115,13 @@ tr:hover {
 
 th:nth-child(1),
 td:nth-child(1) {
-    width: 13%;
+    width: 15%;
+    text-align: center;
 }
 
 th:nth-child(2),
 td:nth-child(2) {
-    width: 50%;
+    width: 60%;
 }
 
 @media screen and (max-width:800px) {

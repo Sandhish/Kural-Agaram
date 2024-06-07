@@ -8,7 +8,7 @@
 }
 
 .updateMain {
-    width: 25rem;
+    width: 28rem;
     padding: 1.5rem;
     border: 2px solid #ccc;
     border-radius: 10px;
@@ -63,4 +63,10 @@
 
 .createButton:hover {
     background-color: #0056b3;
+}
+
+.error{
+    text-align: center;
+    color: red;
+    margin-bottom: 10px;
 }

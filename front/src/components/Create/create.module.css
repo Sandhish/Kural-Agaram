@@ -8,7 +8,7 @@
 }
 
 .createMain {
-    width: 25rem;
+    width: 27rem;
     padding: 1.5rem;
     border: 2px solid #ccc;
     border-radius: 10px;
@@ -64,4 +64,10 @@
 
 .createButton:hover {
     background-color: #0056b3;
+}
+
+.error{
+    color: red;
+    padding-bottom: 10px;
+    text-align: center;
 }

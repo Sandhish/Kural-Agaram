@@ -12,6 +12,13 @@
     margin-top: 7rem;
 }
 
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
 .landingImg img {
     width: 19rem;
     height: auto;

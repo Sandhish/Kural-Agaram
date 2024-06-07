@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { HiOutlineDocumentPlus } from "react-icons/hi2";
 import { GrDocumentUpdate } from "react-icons/gr";
 import { MdDelete } from "react-icons/md";
-import { IoIosExit } from "react-icons/io";
 import { IoMdSearch } from 'react-icons/io';
 import { AiFillHome } from "react-icons/ai";
 import axios from "axios";
@@ -53,6 +52,19 @@ const Home = () => {
     }
   };
 
+  const formatKural = (kural) => {
+    const words = kural.trim().split(/\s+/);
+    if (words.length === 7) {
+      return (
+        <>
+          {words.slice(0, 4).join(' ')}<br />
+          {words.slice(4).join(' ')}
+        </>
+      );
+    }
+    return kural;
+  };
+
   return (
     <div className={styles.mainContainer}>
       {loading ? (
@@ -73,7 +85,6 @@ const Home = () => {
             />
             <IoMdSearch className={styles.searchIcon} onClick={handleSearch} />
             <Link to='/create' title='Add' className={styles.addIcon}><HiOutlineDocumentPlus /></Link>
-            <Link to='/' title='Exit' className={styles.exitIcon}><IoIosExit /></Link>
           </div>
           <div className={styles.kuralTable}>
             <table>
@@ -89,11 +100,11 @@ const Home = () => {
                   Array.isArray(filteredKurals) && filteredKurals.map((kural) => (
                     <tr key={kural._id}>
                       <td>{kural.kuralNo}</td>
-                      <td>{kural.kural}</td>
+                      <td>{formatKural(kural.kural)}</td>
                       <td>
                         <Link to={`/update/${kural._id}`} title='Update' className={styles.updateIcon} ><GrDocumentUpdate /></Link>
                         <button className={styles.deleteIcon}
-                          onClick={(e) => handleDelete(kural._id)} title='Delete'><MdDelete />
+                          onClick={() => handleDelete(kural._id)} title='Delete'><MdDelete />
                         </button>
                       </td>
                     </tr>
