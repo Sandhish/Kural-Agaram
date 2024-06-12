@@ -3,7 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { Link } from "react-router-dom";
 import { IoMdArrowRoundBack } from "react-icons/io";
-import styles from './create.module.css'
+import styles from './create.module.css';
+import toast, { Toaster } from 'react-hot-toast';
 
 const Create = () => {
   const [kural, setKural] = useState('');
@@ -13,24 +14,37 @@ const Create = () => {
 
   const validateKural = (input) => {
     const words = input.trim().split(/\s+/);
-    return words.length === 7 && words.slice(0, 4).length === 4 && words.slice(4).length === 3;
+    return words.length === 7;
   };
 
-  const Submit = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validateKural(kural)) {
       setError('Kural must contain exactly 7 words');
       return;
     }
     setError('');
-    await axios.post("https://thirukkural-crud.onrender.com/kural/", { kural, kuralNo })
-      .then(result => {
-        console.log(result);
-        setKural('');
-        setKuralNo('');
+
+    try {
+      const promise = axios.post("https://thirukkural-crud.onrender.com/kural/", { kural, kuralNo });
+
+      toast.promise(promise, {
+        loading: 'Submitting...',
+        success: 'Kural submitted successfully!',
+        error: 'Failed to submit Kural',
+      });
+
+      await promise;
+
+      setKural('');
+      setKuralNo('');
+
+      setTimeout(() => {
         navigate('/home');
-      })
-      .catch(err => console.log(err));
+      }, 1000);
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   const formatKural = (input) => {
@@ -42,21 +56,22 @@ const Create = () => {
   return (
     <div className={styles.createContainer}>
       <div className={styles.createMain}>
-        <form onSubmit={Submit}>
+        <form onSubmit={handleSubmit}>
           <div className={styles.createHeading}>
-            <Link to='/home' title='Back' className={styles.backIcon} ><IoMdArrowRoundBack /></Link>
+            <Link to='/home' title='Back' className={styles.backIcon}><IoMdArrowRoundBack /></Link>
             Add Kural
           </div>
           <label htmlFor="kuralNo" className={styles.createLabel}>Kural No</label>
           <input type="number" name='kuralNo' className={styles.createInput}
-            onChange={(e) => setKuralNo(e.target.value)} value={kuralNo} min={1} max={1330} required/>
+            onChange={(e) => setKuralNo(e.target.value)} value={kuralNo} min={1} max={1330} required />
           <label htmlFor="kural" className={styles.createLabel}>Kural</label>
           <textarea name="kural" className={`${styles.createInput} ${styles.updateInput}`}
-            onChange={(e) => setKural(e.target.value)} value={formatKural(kural)} rows='3' cols='60' required/>
+            onChange={(e) => setKural(e.target.value)} value={formatKural(kural)} rows='3' cols='60' required />
           {error && <div className={styles.error}>{error}</div>}
           <button className={styles.createButton} type='submit'>Submit</button>
         </form>
       </div>
+      <Toaster position="top-center" reverseOrder={false} />
     </div>
   );
 };
