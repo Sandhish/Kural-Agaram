@@ -7,6 +7,7 @@ import { IoMdSearch } from 'react-icons/io';
 import { AiFillHome } from "react-icons/ai";
 import axios from "axios";
 import styles from './home.module.css';
+import DeleteMsg from '../Deletemsg/deleteMsg';
 
 const Home = () => {
 
@@ -14,6 +15,8 @@ const Home = () => {
   const [searchInput, setSearchInput] = useState('');
   const [filteredKurals, setFilteredKurals] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [showModal, setShowModal] = useState(false);
+  const [deleteId, setDeleteId] = useState(null);
 
   useEffect(() => {
     axios.get('https://thirukkural-crud.onrender.com/kural/')
@@ -28,13 +31,14 @@ const Home = () => {
       });
   }, []);
 
-  const handleDelete = (id) => {
-    axios.delete('https://thirukkural-crud.onrender.com/kural/' + id)
-      .then(res => {
-        console.log(res);
-        window.location.reload();
-      })
-      .catch(err => console.log(err));
+  const handleDelete = async (id) => {
+    try {
+      await axios.delete('https://thirukkural-crud.onrender.com/kural/' + id);
+      setKurals(kurals.filter(kural => kural._id !== id));
+      setFilteredKurals(filteredKurals.filter(kural => kural._id !== id));
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   const handleSearch = () => {
@@ -63,6 +67,21 @@ const Home = () => {
       );
     }
     return kural;
+  };
+
+  const openModal = (id) => {
+    setDeleteId(id);
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+    setDeleteId(null);
+  };
+
+  const confirmDelete = () => {
+    handleDelete(deleteId);
+    closeModal();
   };
 
   return (
@@ -104,7 +123,7 @@ const Home = () => {
                       <td>
                         <Link to={`/update/${kural._id}`} title='Update' className={styles.updateIcon} ><GrDocumentUpdate /></Link>
                         <button className={styles.deleteIcon}
-                          onClick={() => handleDelete(kural._id)} title='Delete'><MdDelete />
+                          onClick={() => openModal(kural._id)} title='Delete'><MdDelete />
                         </button>
                       </td>
                     </tr>
@@ -115,6 +134,11 @@ const Home = () => {
           </div>
         </div>
       )}
+      <DeleteMsg
+        show={showModal}
+        onClose={closeModal}
+        onConfirm={confirmDelete}
+      />
     </div>
   );
 }
