@@ -8,6 +8,7 @@ export const ThirukkuralList = async (req, res) => {
             Number: kural.Number,
             Line1: kural.Line1,
             Line2: kural.Line2,
+            mk:kural.mk,
         })));
         res.json(flattenedKurals);
     } catch (error) {

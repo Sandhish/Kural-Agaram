@@ -13,7 +13,7 @@ const DeleteMsg = ({ show, onClose, onConfirm }) => {
         <p>Are you sure you want to delete this kural?</p>
         <div className={styles.actions}>
           <button onClick={onClose} className={styles.button}>Cancel</button>
-          <button onClick={onConfirm} className={styles.button}>Yes, Delete</button>
+          <button onClick={onConfirm} className={`${styles.button} ${styles.del}`} >Yes, Delete</button>
         </div>
       </div>
     </div>

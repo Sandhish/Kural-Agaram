@@ -56,6 +56,12 @@ const Home = () => {
     }
   };
 
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      handleSearch();
+    }
+  };
+
   const formatKural = (kural) => {
     const words = kural.trim().split(/\s+/);
     if (words.length === 7) {
@@ -100,6 +106,7 @@ const Home = () => {
               name="search"
               value={searchInput}
               onChange={handleInputChange}
+              onKeyPress={handleKeyPress}
               placeholder="Kural No"
             />
             <IoMdSearch className={styles.searchIcon} onClick={handleSearch} />
@@ -116,7 +123,7 @@ const Home = () => {
               </thead>
               <tbody>
                 {
-                  Array.isArray(filteredKurals) && filteredKurals.map((kural) => (
+                  filteredKurals && filteredKurals.map((kural) => (
                     <tr key={kural._id}>
                       <td>{kural.kuralNo}</td>
                       <td>{formatKural(kural.kural)}</td>

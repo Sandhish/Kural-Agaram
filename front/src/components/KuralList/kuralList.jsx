@@ -4,13 +4,15 @@ import { Link } from "react-router-dom";
 import { IoMdSearch } from 'react-icons/io';
 import styles from './kuralList.module.css';
 import { AiFillHome } from "react-icons/ai";
-
+import { MdOutlineViewTimeline } from "react-icons/md";
 
 const Thirukkurals = () => {
     const [kurals, setKurals] = useState([]);
     const [searchInput, setSearchInput] = useState('');
     const [filteredKurals, setFilteredKurals] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [showModal, setShowModal] = useState(false);
+    const [selectedMeaning, setSelectedMeaning] = useState('');
 
     useEffect(() => {
         axios.get('https://thirukkural-crud.onrender.com/kural/kuralList/')
@@ -44,6 +46,22 @@ const Thirukkurals = () => {
         }
     };
 
+    const handleKeyPress = (e) => {
+        if (e.key === 'Enter') {
+            handleSearch();
+        }
+    };
+
+    const handleViewMeaning = (meaning) => {
+        setSelectedMeaning(meaning);
+        setShowModal(true);
+    };
+
+    const closeModal = () => {
+        setShowModal(false);
+        setSelectedMeaning('');
+    };
+
     return (
         <div className={styles.mainContainer}>
             {loading ? (
@@ -60,6 +78,7 @@ const Thirukkurals = () => {
                             name="search"
                             value={searchInput}
                             onChange={handleInputChange}
+                            onKeyPress={handleKeyPress}
                             placeholder="Kural No"
                         />
                         <IoMdSearch className={styles.searchIcon} onClick={handleSearch} />
@@ -70,6 +89,7 @@ const Thirukkurals = () => {
                                 <tr>
                                     <th>Kural No</th>
                                     <th>Kural</th>
+                                    <th>Meaning</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -77,10 +97,24 @@ const Thirukkurals = () => {
                                     <tr key={kural.Number}>
                                         <td>{kural.Number}</td>
                                         <td>{kural.Line1}<br />{kural.Line2}</td>
+                                        <td>
+                                            <MdOutlineViewTimeline 
+                                                onClick={() => handleViewMeaning(kural.mk)} 
+                                                className={styles.viewIcon}
+                                            />
+                                        </td>
                                     </tr>
                                 ))}
                             </tbody>
                         </table>
+                    </div>
+                </div>
+            )}
+            {showModal && (
+                <div className={styles.modal}>
+                    <div className={styles.modalContent}>
+                        <span className={styles.closeButton} onClick={closeModal}>&times;</span>
+                        <p>{selectedMeaning}</p>
                     </div>
                 </div>
             )}
