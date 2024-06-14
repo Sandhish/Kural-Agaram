@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { IoMdSearch } from 'react-icons/io';
 import styles from './kuralList.module.css';
 import { AiFillHome } from "react-icons/ai";
-import { MdOutlineViewTimeline } from "react-icons/md";
 import { BsFillInfoCircleFill } from "react-icons/bs";
 
 const Thirukkurals = () => {
@@ -74,14 +73,7 @@ const Thirukkurals = () => {
                     <div className={styles.mainHeading}>
                         <Link to='/' title='Home' className={styles.homeIcon}><AiFillHome /></Link>
                         <p>Thirukkural List</p>
-                        <input
-                            type="number"
-                            name="search"
-                            value={searchInput}
-                            onChange={handleInputChange}
-                            onKeyPress={handleKeyPress}
-                            placeholder="Kural No"
-                        />
+                        <input type="number" name="search" value={searchInput} onChange={handleInputChange} onKeyPress={handleKeyPress} placeholder="Kural No" />
                         <IoMdSearch className={styles.searchIcon} onClick={handleSearch} />
                     </div>
                     <div className={styles.kuralTable}>

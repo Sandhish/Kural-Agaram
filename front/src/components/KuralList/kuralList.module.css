@@ -78,6 +78,7 @@
         border: none;
         background-color: transparent;
         margin-left: .1rem;
+        margin-top: 3px;
         cursor: pointer;
         padding: 2px;
         margin-right: 8px;
@@ -115,11 +116,7 @@ tr:hover {
 }
 
 th:nth-child(1),
-td:nth-child(1) {
-    width: 15%;
-    text-align: center;
-}
-
+td:nth-child(1),
 th:nth-child(3),
 td:nth-child(3) {
     width: 15%;
@@ -128,7 +125,7 @@ td:nth-child(3) {
 
 th:nth-child(2),
 td:nth-child(2) {
-    width: 70%;
+    width: 60%;
 }
 
 @media screen and (max-width:800px) {

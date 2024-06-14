@@ -101,14 +101,7 @@ const Home = () => {
           <div className={styles.mainHeading}>
             <Link to='/' title='Home' className={styles.homeIcon}><AiFillHome /></Link>
             <p>Thirukkural</p>
-            <input
-              type="number"
-              name="search"
-              value={searchInput}
-              onChange={handleInputChange}
-              onKeyPress={handleKeyPress}
-              placeholder="Kural No"
-            />
+            <input type="number" name="search" value={searchInput} onChange={handleInputChange} onKeyPress={handleKeyPress} placeholder="Kural No" />
             <IoMdSearch className={styles.searchIcon} onClick={handleSearch} />
             <Link to='/create' title='Add' className={styles.addIcon}><HiOutlineDocumentPlus /></Link>
           </div>
