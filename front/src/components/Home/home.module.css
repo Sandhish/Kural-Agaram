@@ -2,7 +2,7 @@
     width: 100%;
     max-width: 50rem;
     margin: 4rem auto;
-    font-family: 'Sens', sans-serif;
+    font-family: var(--font-family);
 }
 
 .loader-container {

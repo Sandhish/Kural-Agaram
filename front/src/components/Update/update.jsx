@@ -82,7 +82,7 @@ const Update = () => {
             onChange={(e) => setKural(e.target.value)} value={formatKural(kural)} rows={'3'} cols={'50'} required />
 
           {error && <div className={styles.error}>{error}</div>}
-          <button className={styles.createButton} type='submit'>Submit</button>
+          <button className={styles.createButton} type='submit'>Update</button>
         </form>
       </div>
       <Toaster position="top-center" reverseOrder={false} />

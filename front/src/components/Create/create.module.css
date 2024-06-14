@@ -3,7 +3,7 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    font-family: 'Sens', sans-serif;
+    font-family: var(--font-family);
     box-shadow: 0px 0px .8rem rgba(50, 49, 49, 0.6);
 }
 

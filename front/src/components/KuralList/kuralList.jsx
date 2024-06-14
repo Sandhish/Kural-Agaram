@@ -5,6 +5,7 @@ import { IoMdSearch } from 'react-icons/io';
 import styles from './kuralList.module.css';
 import { AiFillHome } from "react-icons/ai";
 import { MdOutlineViewTimeline } from "react-icons/md";
+import { BsFillInfoCircleFill } from "react-icons/bs";
 
 const Thirukkurals = () => {
     const [kurals, setKurals] = useState([]);
@@ -89,7 +90,7 @@ const Thirukkurals = () => {
                                 <tr>
                                     <th>Kural No</th>
                                     <th>Kural</th>
-                                    <th>Meaning</th>
+                                    <th>kural vilakkam</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -98,10 +99,7 @@ const Thirukkurals = () => {
                                         <td>{kural.Number}</td>
                                         <td>{kural.Line1}<br />{kural.Line2}</td>
                                         <td>
-                                            <MdOutlineViewTimeline 
-                                                onClick={() => handleViewMeaning(kural.mk)} 
-                                                className={styles.viewIcon}
-                                            />
+                                            <BsFillInfoCircleFill title='Meaning' onClick={() => handleViewMeaning(kural.mk)} className={styles.viewIcon} />
                                         </td>
                                     </tr>
                                 ))}
