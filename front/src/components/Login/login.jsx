@@ -13,7 +13,7 @@ const Login = () => {
         e.preventDefault();
 
         try {
-            const response = await axios.post('http://localhost:9999/api/auth/login', { email, password });
+            const response = await axios.post('https://thirukkural-crud.onrender.com/api/auth/login', { email, password });
             const { token } = response.data;
             localStorage.setItem('token', token);
             console.log('Login successful');
