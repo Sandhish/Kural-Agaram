@@ -78,6 +78,14 @@
         font-size: 2rem;
     }
 
+    .logoutIcon{
+        margin-left: 8px;
+        pad: 6px;
+        font-size: 1.75rem;
+        margin-top: 7px;
+        color: black;
+    }
+
     .homeIcon {
         color: black;
         font-size: 1.6rem;

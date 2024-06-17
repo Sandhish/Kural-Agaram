@@ -17,13 +17,7 @@ const LandingPage = () => {
     if (loading) {
         return (
             <div className={styles.loading}>
-                <Bars
-                    height="30"
-                    width="80"
-                    color="#3498db"
-                    ariaLabel="bars-loading"
-                    visible={true}
-                />
+                <Bars height="30" width="80" color="#3498db" ariaLabel="bars-loading" visible={true}/>
             </div>
         );
     }
@@ -35,7 +29,7 @@ const LandingPage = () => {
             </div>
             <div className={styles.navLinks}>
                 <Link to="/kuralList" className={styles.allKural}>View All Kurals</Link>
-                <Link to="/home" className={styles.myKurals}>My List</Link>
+                <Link to="/register" className={styles.myKurals}>My List</Link>
             </div>
         </div>
     );

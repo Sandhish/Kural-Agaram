@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { IoMdSearch } from 'react-icons/io';
 import styles from './kuralList.module.css';
 import { AiFillHome } from "react-icons/ai";
-import { BsFillInfoCircleFill } from "react-icons/bs";
+import { BsInfoCircle } from "react-icons/bs";
 
 const Thirukkurals = () => {
     const [kurals, setKurals] = useState([]);
@@ -15,7 +15,7 @@ const Thirukkurals = () => {
     const [selectedMeaning, setSelectedMeaning] = useState('');
 
     useEffect(() => {
-        axios.get('https://thirukkural-crud.onrender.com/kural/kuralList/')
+        axios.get('http://localhost:9999/kural/kuralList/')
             .then((result) => {
                 if (result.data) {
                     setKurals(result.data);
@@ -82,7 +82,7 @@ const Thirukkurals = () => {
                                 <tr>
                                     <th>Kural No</th>
                                     <th>Kural</th>
-                                    <th>kural vilakkam</th>
+                                    <th>Kural vilakkam</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -91,7 +91,7 @@ const Thirukkurals = () => {
                                         <td>{kural.Number}</td>
                                         <td>{kural.Line1}<br />{kural.Line2}</td>
                                         <td>
-                                            <BsFillInfoCircleFill title='Meaning' onClick={() => handleViewMeaning(kural.mk)} className={styles.viewIcon} />
+                                            <BsInfoCircle title='Meaning' onClick={() => handleViewMeaning(kural.mk)} className={styles.viewIcon} />
                                         </td>
                                     </tr>
                                 ))}

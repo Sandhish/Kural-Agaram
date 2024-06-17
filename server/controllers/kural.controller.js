@@ -18,8 +18,8 @@ export const ThirukkuralList = async (req, res) => {
 
 export const ThirukkuralIndex = async (req, res) => {
     try {
-        const kural = await Kural.find();
-        res.json(kural)
+        const kurals = await Kural.find({ user: req.user.id });
+        res.json(kurals);
     } catch (error) {
         res.status(400).json({ message: error.message })
     }
@@ -29,6 +29,7 @@ export const ThirukkuralAdd = async (req, res) => {
     const newKural = new Kural({
         kuralNo: req.body.kuralNo,
         kural: req.body.kural,
+        user: req.user.id
     });
 
     try {
@@ -41,7 +42,7 @@ export const ThirukkuralAdd = async (req, res) => {
 
 export const ThirukkuralDetails = async (req, res) => {
     try {
-        const kural = await Kural.findById(req.params.id);
+        const kural = await Kural.findOne({ _id: req.params.id, user: req.user.id });
         if (kural == null) {
             return res.status(404).json({ message: "Cannot find kural" });
         } else {
@@ -56,6 +57,10 @@ export const ThirukkuralDelete = async (req, res) => {
     const kuralId = req.params.id;
 
     try {
+        const kural = await Kural.findOne({ _id: kuralId, user: req.user.id });
+        if (!kural) {
+            return res.status(404).json({ message: "Kural not found" });
+        }
         await Kural.deleteOne({ _id: kuralId });
         res.json({ message: "Thirukkural deleted!" });
     } catch (error) {
@@ -65,8 +70,12 @@ export const ThirukkuralDelete = async (req, res) => {
 
 export const ThirukkuralUpdate = async (req, res) => {
     try {
+        const kural = await Kural.findOne({ _id: req.params.id, user: req.user.id });
+        if (!kural) {
+            return res.status(404).json({ message: "Kural not found" });
+        }
         const updatedKural = await Kural.findOneAndUpdate(
-            { _id: req.params.id },
+            { _id: req.params.id, user: req.user.id },
             { $set: { kuralNo: req.body.kuralNo, kural: req.body.kural } },
             { new: true }
         );

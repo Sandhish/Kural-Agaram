@@ -12,16 +12,20 @@ const Update = () => {
   const [kuralNo, setKuralNo] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
+  const token = localStorage.getItem('token');
 
   useEffect(() => {
-    axios.get(`https://thirukkural-crud.onrender.com/kural/${id}`)
+    axios.get(`http://localhost:9999/kural/${id}`, {
+      headers: {
+        'x-auth-token': token
+      }
+    })
       .then(result => {
-        console.log(result.data);
         setKuralNo(result.data.kuralNo || '');
         setKural(result.data.kural || '');
       })
       .catch(err => console.log(err));
-  }, [id]);
+  }, [id, token]);
 
   const validateKural = (input) => {
     const words = input.trim().split(/\s+/);
@@ -37,7 +41,11 @@ const Update = () => {
     setError('');
 
     try {
-      const promise = axios.put(`https://thirukkural-crud.onrender.com/kural/${id}`, { kural, kuralNo });
+      const promise = axios.put(`http://localhost:9999/kural/${id}`, { kuralNo, kural }, {
+        headers: {
+          'x-auth-token': token
+        }
+      });
 
       toast.promise(promise, {
         loading: 'Updating...',
