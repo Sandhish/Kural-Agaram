@@ -15,7 +15,7 @@ const Thirukkurals = () => {
     const [selectedMeaning, setSelectedMeaning] = useState('');
 
     useEffect(() => {
-        axios.get('http://localhost:9999/kural/kuralList/')
+        axios.get(`${import.meta.env.VITE_FRONTEND_URL}/kural/kuralList/`)
             .then((result) => {
                 if (result.data) {
                     setKurals(result.data);

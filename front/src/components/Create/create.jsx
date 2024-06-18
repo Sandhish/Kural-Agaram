@@ -33,31 +33,31 @@ const Create = () => {
 
     setError('');
 
-    try {
-      const response = await axios.post('http://localhost:9999/kural/',
+    const createKural = async () => {
+      const response = await axios.post(`${import.meta.env.VITE_FRONTEND_URL}/kural/`,
         { kuralNo, kural },
         { headers: { 'x-auth-token': token } }
       );
 
       if (response.status === 201) {
-        toast.success('Kural submitted successfully!');
         setKuralNo('');
         setKural('');
         setTimeout(() => {
           navigate('/home');
         }, 1000);
       } else {
-        toast.error('Failed to submit Kural');
+        throw new Error('Failed to submit Kural');
       }
-    } catch (err) {
-      console.error(err);
-      if (err.response && err.response.data) {
-        console.error(err.response.data);
-        setError(err.response.data.message);
-      } else {
-        setError('Failed to submit Kural');
+    };
+
+    toast.promise(
+      createKural(),
+      {
+        loading: 'Submitting...',
+        success: 'Kural submitted successfully!',
+        error: (err) => `Submission failed: ${err.message}`,
       }
-    }
+    );
   };
 
   const formatKural = (input) => {
@@ -79,7 +79,7 @@ const Create = () => {
             value={kuralNo} min={0} max={1330} required />
           <label htmlFor="kural" className={styles.createLabel}>Kural</label>
           <textarea name="kural" className={`${styles.createInput} ${styles.updateInput}`} onChange={(e) => setKural(e.target.value)}
-            value={formatKural(kural)} rows="3" cols="60" required/>
+            value={formatKural(kural)} rows="3" cols="60" required />
           {error && <div className={styles.error}>{error}</div>}
           <button className={styles.createButton} type="submit"> Submit </button>
         </form>

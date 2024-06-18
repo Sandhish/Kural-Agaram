@@ -21,11 +21,9 @@ const Register = () => {
   const onSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:9999/api/auth/register', formData);
-      const res = await axios.post('http://localhost:9999/api/auth/login', { email, password });
-      localStorage.setItem('token', res.data.token);
-      console.log('User registered and logged in');
-      navigate('/home');
+      await axios.post(`${import.meta.env.VITE_FRONTEND_URL}/api/auth/register`, formData);
+      console.log('User Registered Successfully');
+      navigate('/login');
     } catch (err) {
       console.error(err);
     }

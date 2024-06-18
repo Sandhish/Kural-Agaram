@@ -15,7 +15,7 @@ const Update = () => {
   const token = localStorage.getItem('token');
 
   useEffect(() => {
-    axios.get(`http://localhost:9999/kural/${id}`, {
+    axios.get(`${import.meta.env.VITE_FRONTEND_URL}/kural/${id}`, {
       headers: {
         'x-auth-token': token
       }
@@ -41,7 +41,7 @@ const Update = () => {
     setError('');
 
     try {
-      const promise = axios.put(`http://localhost:9999/kural/${id}`, { kuralNo, kural }, {
+      const promise = axios.put(`${import.meta.env.VITE_FRONTEND_URL}/kural/${id}`, { kuralNo, kural }, {
         headers: {
           'x-auth-token': token
         }

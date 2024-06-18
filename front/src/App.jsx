@@ -13,21 +13,20 @@ function App() {
   return (
     <>
       <AuthProvider>
-        <Router>
-          <Routes>
-            <Route path="/" element={<LandingPage />} />
-            <Route path="/kuralList" element={<Thirukkurals />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/login" element={<Login />} />
-
-            <Route element={<ProtectedRoute />}>
-              <Route path="/home" element={<Home />} />
-              <Route path="/create" element={<Create />} />
-              <Route path="/update/:id" element={<Update />} />
-            </Route>
-          </Routes>
-        </Router>
-      </AuthProvider>
+      <Router>
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/kuralList" element={<Thirukkurals />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
+          <Route element={<ProtectedRoute />}>
+            <Route path="/home" element={<Home />} />
+            <Route path="/create" element={<Create />} />
+            <Route path="/update/:id" element={<Update />} />
+          </Route>
+        </Routes>
+      </Router>
+    </AuthProvider>
     </>
   )
 }

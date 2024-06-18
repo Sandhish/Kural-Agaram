@@ -28,7 +28,7 @@ const Home = () => {
         return;
       }
       try {
-        const result = await axios.get('http://localhost:9999/kural/', {
+        const result = await axios.get(`${import.meta.env.VITE_FRONTEND_URL}/kural/`, {
           headers: {
             'x-auth-token': token
           }
@@ -47,7 +47,7 @@ const Home = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:9999/kural/${id}`, {
+      await axios.delete(`${import.meta.env.VITE_FRONTEND_URL}/kural/${id}`, {
         headers: {
           'x-auth-token': localStorage.getItem('token')
         }
