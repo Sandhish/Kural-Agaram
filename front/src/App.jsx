@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './components/Home/home'
-import Update from './components/Update/update'
-import Create from './components/Create/create'
+import Home from './components/Home/home';
+import Update from './components/Update/update';
+import Create from './components/Create/create';
 import LandingPage from './components/LandingPage/landingPage';
 import Thirukkurals from './components/KuralList/kuralList';
 import Register from './components/Register/register';
@@ -11,8 +11,7 @@ import { AuthProvider } from './components/ProtectedRoute/AuthContext';
 
 function App() {
   return (
-    <>
-      <AuthProvider>
+    <AuthProvider>
       <Router>
         <Routes>
           <Route path="/" element={<LandingPage />} />
@@ -27,8 +26,7 @@ function App() {
         </Routes>
       </Router>
     </AuthProvider>
-    </>
-  )
+  );
 }
 
-export default App
+export default App;

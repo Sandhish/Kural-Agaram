@@ -3,9 +3,11 @@ import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import { AiFillHome } from "react-icons/ai";
 import styles from './register.module.css'
+import { useAuth } from '../ProtectedRoute/AuthContext';
 
 const Register = () => {
   const navigate = useNavigate();
+  const { login } = useAuth();
   const [formData, setFormData] = useState({
     username: '',
     email: '',
@@ -22,8 +24,10 @@ const Register = () => {
     e.preventDefault();
     try {
       await axios.post(`${import.meta.env.VITE_FRONTEND_URL}/api/auth/register`, formData);
-      console.log('User Registered Successfully');
-      navigate('/login');
+      const res = await axios.post(`${import.meta.env.VITE_FRONTEND_URL}/api/auth/login`, { email, password });
+      login(res.data.token);
+      console.log('User Registered and Logged in Successfully');
+      navigate('/home');
     } catch (err) {
       console.error(err);
     }

@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import { AiFillHome } from "react-icons/ai";
 import styles from './login.module.css';
+import { useAuth } from '../ProtectedRoute/AuthContext';
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -10,6 +11,7 @@ const Login = () => {
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
+    const { login } = useAuth();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -20,7 +22,9 @@ const Login = () => {
             const response = await axios.post(`${import.meta.env.VITE_FRONTEND_URL}/api/auth/login`, { email, password });
             const { token } = response.data;
             localStorage.setItem('token', token);
-            console.log('Login successful');
+            login(token);
+            setLoading(false);
+            console.log('Logged in successfully');
             navigate('/home');
         } catch (error) {
             console.error(error);
