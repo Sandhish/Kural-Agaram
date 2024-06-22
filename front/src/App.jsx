@@ -1,3 +1,4 @@
+// App.jsx
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './components/Home/home';
 import Update from './components/Update/update';
@@ -23,7 +24,7 @@ function App() {
           <Route path="/create" element={<Create />} />
           <Route path="/update/:id" element={<Update />} />
           <Route element={<ProtectedRoute />}>
-            <Route path="/admin" element={<AdminPage />} adminOnly />
+            <Route path="/admin" element={<AdminPage />} />
           </Route>
         </Routes>
       </Router>

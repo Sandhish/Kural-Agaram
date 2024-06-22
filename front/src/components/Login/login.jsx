@@ -23,19 +23,15 @@ const Login = () => {
 
         if (email === adminEmail && password === adminPassword) {
             setLoading(false);
-            localStorage.setItem('isAdmin', true);
-            login('admin-token');
+            login('admin-token', true);
             navigate('/admin');
             return;
         }
 
         try {
-            const response = await axios.post('http://localhost:8989/api/auth/login', { email, password });
+            const response = await axios.post(`${import.meta.env.VITE_FRONTEND_URL}/api/auth/login`, { email, password });
             const { token } = response.data;
-            localStorage.setItem('token', token);
-            localStorage.removeItem('isAdmin');
             login(token);
-            setLoading(false);
             navigate('/home');
         } catch (error) {
             console.error(error);
