@@ -8,6 +8,7 @@ import Register from './components/Register/register';
 import Login from './components/Login/login';
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 import { AuthProvider } from './components/ProtectedRoute/AuthContext';
+import AdminPage from './components/AdminPage/adminPage';
 
 function App() {
   return (
@@ -18,10 +19,11 @@ function App() {
           <Route path="/kuralList" element={<Thirukkurals />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/create" element={<Create />} />
+          <Route path="/update/:id" element={<Update />} />
           <Route element={<ProtectedRoute />}>
-            <Route path="/home" element={<Home />} />
-            <Route path="/create" element={<Create />} />
-            <Route path="/update/:id" element={<Update />} />
+            <Route path="/admin" element={<AdminPage />} adminOnly />
           </Route>
         </Routes>
       </Router>

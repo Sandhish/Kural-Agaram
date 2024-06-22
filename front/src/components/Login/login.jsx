@@ -18,13 +18,24 @@ const Login = () => {
         setLoading(true);
         setError('');
 
+        const adminEmail = `${import.meta.env.VITE_ADMIN_EMAIL}`;
+        const adminPassword = `${import.meta.env.VITE_ADMIN_PASSWORD}`;
+
+        if (email === adminEmail && password === adminPassword) {
+            setLoading(false);
+            localStorage.setItem('isAdmin', true);
+            login('admin-token');
+            navigate('/admin');
+            return;
+        }
+
         try {
-            const response = await axios.post(`${import.meta.env.VITE_FRONTEND_URL}/api/auth/login`, { email, password });
+            const response = await axios.post('http://localhost:8989/api/auth/login', { email, password });
             const { token } = response.data;
             localStorage.setItem('token', token);
+            localStorage.removeItem('isAdmin');
             login(token);
             setLoading(false);
-            console.log('Logged in successfully');
             navigate('/home');
         } catch (error) {
             console.error(error);
