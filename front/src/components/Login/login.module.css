@@ -1,0 +1,124 @@
+.loginContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f9f9f9;
+    font-family: var(--font-family);
+}
+
+.loader-container {
+    background: rgba(0, 0, 0, 0.834) url("https://media.giphy.com/media/8agqybiK5LW8qrG3vJ/giphy.gif") no-repeat;
+    z-index: 1;
+    height: 100%;
+    border: 1px solid;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.spinner {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 48%;
+    left: 48%;
+    border: 5px solid;
+    border-color: #7e91f0 transparent #7e91f0 transparent;
+    border-radius: 50%;
+    animation: spin-anim 1.5s linear infinite;
+}
+
+@keyframes spin-anim {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.loginMain {
+    width: 400px;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    position: relative;
+}
+
+.loginToHome {
+    display: inline-block;
+    color: #4a90e2;
+    font-size: 28px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.loginToHome:hover {
+    color: rgb(82, 82, 230);
+}
+
+.loginHeading {
+    margin-bottom: 15px;
+}
+
+.loginForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.loginInput {
+    padding: 15px;
+    margin-bottom: 20px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.loginInput:focus {
+    outline: none;
+    border-color: #4a90e2;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.loginButton {
+    padding: 8px;
+    background-color: #4a90e2;
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 80px;
+    height: 40px;
+    transition: background-color 0.3s ease;
+    margin-bottom: 15px;
+}
+
+.loginButton:hover {
+    background-color: rgb(82, 82, 230);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.error {
+    color: #e74c3c;
+    margin-bottom: 15px;
+}
+
+.registerLink {
+    color: gray;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.registerLink:hover {
+    color:black;
+}

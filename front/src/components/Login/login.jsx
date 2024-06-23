@@ -15,16 +15,16 @@ const Login = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setLoading(true);
         setError('');
+        setLoading(true);
 
         const adminEmail = `${import.meta.env.VITE_ADMIN_EMAIL}`;
         const adminPassword = `${import.meta.env.VITE_ADMIN_PASSWORD}`;
 
         if (email === adminEmail && password === adminPassword) {
-            setLoading(false);
             login('admin-token', true);
             navigate('/admin');
+            setLoading(false);
             return;
         }
 
@@ -42,18 +42,24 @@ const Login = () => {
     };
 
     return (
-        <div>
-            <Link to='/' title='Home' className={styles.homeIcon}><AiFillHome /></Link>
-            <h1>Login</h1>
-            <form onSubmit={handleSubmit}>
-                <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" required disabled={loading} />
-                <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" required disabled={loading} />
-                <button type="submit" disabled={loading}>
-                    {loading ? 'Logging in...' : 'Login'}
-                </button>
-            </form>
-            {error && <p className={styles.error}>{error}</p>}
-            <Link to='/register'>Register</Link>
+        <div className={styles.loginContainer}>
+            {loading ? (
+                <div className={styles.loaderContainer}>
+                    <div className={styles.spinner}></div>
+                </div>
+            ) : (
+                <div className={styles.loginMain}>
+                    <Link to='/' title='Home' className={styles.loginToHome}><AiFillHome /></Link>
+                    <h1 className={styles.loginHeading}>Login</h1>
+                    <form onSubmit={handleSubmit} className={styles.loginForm}>
+                        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" required className={styles.loginInput} />
+                        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" required className={styles.loginInput} />
+                        <button type="submit" className={styles.loginButton}>Login</button>
+                    </form>
+                    {error && <p className={styles.error}>{error}</p>}
+                    <Link to='/register' className={styles.registerLink}>Don't have an account?</Link>
+                </div>
+            )}
         </div>
     );
 };

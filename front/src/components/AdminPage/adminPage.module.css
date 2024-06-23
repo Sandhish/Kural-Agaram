@@ -1,0 +1,96 @@
+.adminContainer {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    margin-top: 8rem;
+    font-family: var(--font-family);
+}
+
+.adminHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.adminHeader h1 {
+    margin: 0;
+}
+
+.adminHeader .logoutIcon {
+    margin-left: 8px;
+    pad: 6px;
+    font-size: 1.9rem;
+    margin-top: 12px;
+    color: black;
+}
+
+.adminTable {
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.adminTable th,
+.adminTable td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+.adminTable th {
+    background-color: #f2f2f2;
+}
+
+.adminTable tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.adminTable tr:hover {
+    background-color: #f1f1f1;
+}
+
+.deleteButton {
+    padding: 5px 10px;
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.deleteButton:hover {
+    background-color: #ff3333;
+}
+
+.loader-container {
+    background: rgba(0, 0, 0, 0.834) url("https://media.giphy.com/media/8agqybiK5LW8qrG3vJ/giphy.gif") no-repeat;
+    z-index: 1;
+    height: 100%;
+    border: 1px solid;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.spinner {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 48%;
+    left: 48%;
+    border: 5px solid;
+    border-color: #7e91f0 transparent #7e91f0 transparent;
+    border-radius: 50%;
+    animation: spin-anim 1.5s linear infinite;
+}
+
+@keyframes spin-anim {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

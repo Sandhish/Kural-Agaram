@@ -24,11 +24,13 @@
 }
 
 .modal h2 {
+    text-align: left;
     font-size: 1.2rem;
     margin-bottom: 15px;
 }
 
-.modal p {
+.modal p {    
+    text-align: left;
     font-size: 1rem;
     margin-bottom: 20px;
 }
