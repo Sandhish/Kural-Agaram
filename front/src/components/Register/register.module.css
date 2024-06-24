@@ -8,9 +8,9 @@
 }
 
 .loaderContainer {
-    background: rgba(0, 0, 0, 0.5);
     z-index: 1;
     height: 100%;
+    border: 1px solid;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -20,6 +20,9 @@
 .spinner {
     width: 30px;
     height: 30px;
+    position: absolute;
+    top: 48%;
+    left: 48%;
     border: 5px solid;
     border-color: #7e91f0 transparent #7e91f0 transparent;
     border-radius: 50%;

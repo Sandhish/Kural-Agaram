@@ -8,7 +8,6 @@
 }
 
 .loader-container {
-    background: rgba(0, 0, 0, 0.834) url("https://media.giphy.com/media/8agqybiK5LW8qrG3vJ/giphy.gif") no-repeat;
     z-index: 1;
     height: 100%;
     border: 1px solid;
